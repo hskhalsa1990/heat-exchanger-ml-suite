@@ -1,0 +1,7 @@
+// Power BI DAX measures
+Avg_U = AVERAGE(exchanger_data[U])
+Total_Saving = SUM(exchanger_data[saving_usd])
+Total_Q = SUM(exchanger_data[Q])
+Fouling_Alert_Count = COUNTROWS(FILTER(exchanger_data, exchanger_data[fouling_pct] > 5))
+Healthy_Pct = DIVIDE(COUNTROWS(FILTER(exchanger_data, exchanger_data[fouling_pct] <= 5)), COUNTROWS(exchanger_data)) * 100
+Monthly_Saving = CALCULATE(SUM(exchanger_data[saving_usd]), DATESMTD(exchanger_data[Date]))
